@@ -26,7 +26,7 @@ class RecordWhistleViewController: UIViewController, AVAudioRecorderDelegate {
         stackView = UIStackView()
         stackView.spacing = 30
         stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.distribution = UIStackViewDistribution.fillEqually
+        stackView.distribution = UIStackView.Distribution.fillEqually
         stackView.alignment = .center
         stackView.axis = .vertical
         view.addSubview(stackView)
@@ -38,7 +38,7 @@ class RecordWhistleViewController: UIViewController, AVAudioRecorderDelegate {
         self.recordingSession = AVAudioSession.sharedInstance()
         
         do {
-            try recordingSession.setCategory(AVAudioSessionCategoryPlayAndRecord, mode: AVAudioSessionModeSpokenAudio, options: AVAudioSessionCategoryOptions.defaultToSpeaker)
+            try recordingSession.setCategory(AVAudioSession.Category.playAndRecord, mode: AVAudioSession.Mode.spokenAudio, options: AVAudioSession.CategoryOptions.defaultToSpeaker)
             try recordingSession.setActive(true)
             recordingSession.requestRecordPermission() { [unowned self] allowed in
                 DispatchQueue.main.async {

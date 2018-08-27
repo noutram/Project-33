@@ -50,7 +50,7 @@ class SubmitViewController: UIViewController {
         status.numberOfLines = 0
         status.textAlignment = .center
         
-        spinner = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+        spinner = UIActivityIndicatorView(style: .whiteLarge)
         spinner.translatesAutoresizingMaskIntoConstraints = false
         spinner.hidesWhenStopped = true
         spinner.startAnimating()

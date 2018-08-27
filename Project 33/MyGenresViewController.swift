@@ -52,7 +52,7 @@ class MyGenresViewController: UITableViewController {
                         let predicate = NSPredicate(format:"genre = %@", genre)
                         let subscription = CKQuerySubscription(recordType: "Whistles", predicate: predicate, options: .firesOnRecordCreation)
                         
-                        let notification = CKNotificationInfo()
+                        let notification = CKSubscription.NotificationInfo()
                         notification.alertBody = "There's a new whistle in the \(genre) genre."
                         notification.soundName = "default"
 //                        notification.shouldSendContentAvailable = true  //For silent push

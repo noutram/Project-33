@@ -23,7 +23,7 @@ class ResultsViewControllerTableViewController: UITableViewController {
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         
-        let reference = CKReference(recordID: whistle.recordID, action: .deleteSelf)
+        let reference = CKRecord.Reference(recordID: whistle.recordID, action: .deleteSelf)
         let pred = NSPredicate(format: "owningWhistle == %@", reference)
         let sort = NSSortDescriptor(key: "creationDate", ascending: true)
         let query = CKQuery(recordType: "Suggestions", predicate: pred)
@@ -126,7 +126,7 @@ class ResultsViewControllerTableViewController: UITableViewController {
     
     func add(suggestion: String) {
         let whistleRecord = CKRecord(recordType: "Suggestions")
-        let reference = CKReference(recordID: whistle.recordID, action: .deleteSelf)
+        let reference = CKRecord.Reference(recordID: whistle.recordID, action: .deleteSelf)
         whistleRecord["text"] = suggestion as CKRecordValue
         whistleRecord["owningWhistle"] = reference as CKRecordValue
         
@@ -146,7 +146,7 @@ class ResultsViewControllerTableViewController: UITableViewController {
     }
     
     @objc func downloadTapped() {
-        let spinner = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+        let spinner = UIActivityIndicatorView(style: .gray)
         spinner.tintColor = UIColor.black
         spinner.startAnimating()
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: spinner)
