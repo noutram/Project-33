@@ -19,6 +19,7 @@
 		07A2B99421304EAC00DD1E12 /* AddCommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A2B99321304EAC00DD1E12 /* AddCommentsViewController.swift */; };
 		07A2B99621304F5B00DD1E12 /* SubmitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A2B99521304F5B00DD1E12 /* SubmitViewController.swift */; };
 		07A2B99A2130508200DD1E12 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07A2B9992130508200DD1E12 /* CloudKit.framework */; };
+		07B2898B2132F5CE00037E48 /* MyGenresViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B2898A2132F5CE00037E48 /* MyGenresViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		07A2B99521304F5B00DD1E12 /* SubmitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitViewController.swift; sourceTree = "<group>"; };
 		07A2B9972130507F00DD1E12 /* Project 33.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Project 33.entitlements"; sourceTree = "<group>"; };
 		07A2B9992130508200DD1E12 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		07B2898A2132F5CE00037E48 /* MyGenresViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGenresViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +77,7 @@
 				079B8B5C212F1C6400E7BE16 /* AppDelegate.swift */,
 				079B8B5E212F1C6400E7BE16 /* TableViewController.swift */,
 				075619E82132E145000E7C40 /* ResultsViewControllerTableViewController.swift */,
+				07B2898A2132F5CE00037E48 /* MyGenresViewController.swift */,
 				079B8B6E212F1D5000E7BE16 /* RecordWhistleViewController.swift */,
 				07A2B99121304DC800DD1E12 /* SelectGenreViewController.swift */,
 				07A2B99321304EAC00DD1E12 /* AddCommentsViewController.swift */,
@@ -179,6 +182,7 @@
 				075619E92132E145000E7C40 /* ResultsViewControllerTableViewController.swift in Sources */,
 				07A2B99421304EAC00DD1E12 /* AddCommentsViewController.swift in Sources */,
 				079B8B5D212F1C6400E7BE16 /* AppDelegate.swift in Sources */,
+				07B2898B2132F5CE00037E48 /* MyGenresViewController.swift in Sources */,
 				07A2B99221304DC800DD1E12 /* SelectGenreViewController.swift in Sources */,
 				075619E72132DCB0000E7C40 /* Whistle.swift in Sources */,
 				07A2B99621304F5B00DD1E12 /* SubmitViewController.swift in Sources */,
@@ -332,6 +336,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A5RDWYM8E9;
 				INFOPLIST_FILE = "Project 33/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -351,6 +356,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A5RDWYM8E9;
 				INFOPLIST_FILE = "Project 33/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

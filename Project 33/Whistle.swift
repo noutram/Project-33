@@ -10,7 +10,7 @@ import UIKit
 import CloudKit
 
 class Whistle: NSObject {
-    var recordID: CKRecord.ID!
+    var recordID: CKRecordID!
     var genre: String!
     var comments: String!
     var audio: URL!

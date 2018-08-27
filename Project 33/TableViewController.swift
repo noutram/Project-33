@@ -9,6 +9,7 @@
 import UIKit
 import CloudKit
 
+
 class TableViewController: UITableViewController {
     static var isDirty = true
     var whistles = [Whistle]()
@@ -24,6 +25,24 @@ class TableViewController: UITableViewController {
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+        self.tableView.isUserInteractionEnabled = true
+        self.tableView.allowsSelection = true
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Genres", style: .plain, target: self, action: #selector(selectGenre))
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(onDidReceiveData(_:)), name: .push, object: nil)
+    }
+    
+    @objc func onDidReceiveData(_ notification:Notification) {
+        // Do something now
+        loadWhistles()
+    }
+    
+    @objc func selectGenre() {
+        let vc = MyGenresViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
 
     @objc func addWhistle() {
@@ -44,8 +63,8 @@ class TableViewController: UITableViewController {
     }
 
     func makeAttributedString(title: String, subtitle: String) -> NSAttributedString {
-        let titleAttributes = [NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: UIFont.TextStyle.headline), NSAttributedString.Key.foregroundColor: UIColor.purple]
-        let subtitleAttributes = [NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: UIFont.TextStyle.subheadline)]
+        let titleAttributes = [NSAttributedStringKey.font: UIFont.preferredFont(forTextStyle: UIFontTextStyle.headline), NSAttributedStringKey.foregroundColor: UIColor.purple]
+        let subtitleAttributes = [NSAttributedStringKey.font: UIFont.preferredFont(forTextStyle: UIFontTextStyle.subheadline)]
         
         let titleString = NSMutableAttributedString(string: "\(title)", attributes: titleAttributes)
         
@@ -111,7 +130,7 @@ class TableViewController: UITableViewController {
         
     }
     
-    func tableView(tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("Ping!")
         let vc = ResultsViewControllerTableViewController()
         vc.whistle = whistles[indexPath.row]

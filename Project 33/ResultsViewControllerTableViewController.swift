@@ -23,7 +23,7 @@ class ResultsViewControllerTableViewController: UITableViewController {
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         
-        let reference = CKRecord.Reference(recordID: whistle.recordID, action: .deleteSelf)
+        let reference = CKReference(recordID: whistle.recordID, action: .deleteSelf)
         let pred = NSPredicate(format: "owningWhistle == %@", reference)
         let sort = NSSortDescriptor(key: "creationDate", ascending: true)
         let query = CKQuery(recordType: "Suggestions", predicate: pred)
@@ -102,8 +102,9 @@ class ResultsViewControllerTableViewController: UITableViewController {
         
         return cell
     }
-    
-    override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("Section \(indexPath.section) and Row \(indexPath.row)")
         guard indexPath.section == 1 && indexPath.row == suggestions.count else { return }
         
         tableView.deselectRow(at: indexPath, animated: true)
@@ -125,7 +126,7 @@ class ResultsViewControllerTableViewController: UITableViewController {
     
     func add(suggestion: String) {
         let whistleRecord = CKRecord(recordType: "Suggestions")
-        let reference = CKRecord.Reference(recordID: whistle.recordID, action: .deleteSelf)
+        let reference = CKReference(recordID: whistle.recordID, action: .deleteSelf)
         whistleRecord["text"] = suggestion as CKRecordValue
         whistleRecord["owningWhistle"] = reference as CKRecordValue
         
@@ -145,7 +146,7 @@ class ResultsViewControllerTableViewController: UITableViewController {
     }
     
     @objc func downloadTapped() {
-        let spinner = UIActivityIndicatorView(style: .gray)
+        let spinner = UIActivityIndicatorView(activityIndicatorStyle: .gray)
         spinner.tintColor = UIColor.black
         spinner.startAnimating()
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: spinner)

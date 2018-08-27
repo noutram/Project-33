@@ -33,7 +33,7 @@ class SubmitViewController: UIViewController {
         stackView = UIStackView()
         stackView.spacing = 10
         stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.distribution = UIStackView.Distribution.fillEqually
+        stackView.distribution = .fillEqually
         stackView.alignment = .center
         stackView.axis = .vertical
         view.addSubview(stackView)
@@ -50,7 +50,7 @@ class SubmitViewController: UIViewController {
         status.numberOfLines = 0
         status.textAlignment = .center
         
-        spinner = UIActivityIndicatorView(style: .whiteLarge)
+        spinner = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
         spinner.translatesAutoresizingMaskIntoConstraints = false
         spinner.hidesWhenStopped = true
         spinner.startAnimating()
